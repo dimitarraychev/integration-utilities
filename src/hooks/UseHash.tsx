@@ -46,7 +46,12 @@ export const useHash = (hashFn: HashFunction, initialSettings: Settings) => {
     };
 
     computeHash();
-  }, [settingsData, hashFn]);
+  }, [
+    settingsData.input,
+    settingsData.key,
+    settingsData.outputEncoding,
+    hashFn,
+  ]);
 
   return { settingsData, handleChange, setSettingsData };
 };
