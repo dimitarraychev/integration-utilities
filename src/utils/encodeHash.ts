@@ -16,7 +16,6 @@ export const encodeHash = (
     return btoa(binary);
   }
 
-  // Default UTF-8
   const decoder = new TextDecoder("utf-8");
   return decoder.decode(bytes);
 };

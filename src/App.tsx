@@ -1,4 +1,5 @@
 import { Routes, Route, Navigate } from "react-router-dom";
+import { Bounce, ToastContainer } from "react-toastify";
 import "./App.css";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
@@ -24,6 +25,20 @@ function App() {
       </div>
 
       <Footer />
+
+      <ToastContainer
+        position="top-right"
+        theme="dark"
+        transition={Bounce}
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        rtl={false}
+        closeOnClick
+        draggable
+        pauseOnFocusLoss
+        pauseOnHover
+      />
     </div>
   );
 }

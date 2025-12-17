@@ -1,5 +1,6 @@
 import "./ContentWrapper.css";
 import type { Settings } from "../../models/Settings";
+import { toast } from "react-toastify";
 
 interface ContentWrapperProps {
   settingsData: Settings;
@@ -14,6 +15,11 @@ const ContentWrapper = ({
   settingsData,
   handleChange,
 }: ContentWrapperProps) => {
+  const handleCopy = () => {
+    navigator.clipboard.writeText(settingsData.output);
+    toast.success("URL copied to clipboard ✅");
+  };
+
   return (
     <div className="content">
       <label htmlFor="input">Input:</label>
@@ -31,6 +37,7 @@ const ContentWrapper = ({
         id="output"
         value={settingsData.output}
         onChange={handleChange}
+        onClick={handleCopy}
       />
     </div>
   );
