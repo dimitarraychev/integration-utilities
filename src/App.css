@@ -56,16 +56,6 @@ input[type="checkbox"] {
   height: 1rem;
 }
 
-textarea {
-  margin-bottom: 0.75rem;
-  height: 10rem;
-  border-radius: 0.5rem;
-  padding-left: 0.3rem;
-  margin-right: 0.5rem;
-  background-color: var(--deep-blue);
-  color: white !important;
-}
-
 .wrapper input {
   flex: 1;
 }

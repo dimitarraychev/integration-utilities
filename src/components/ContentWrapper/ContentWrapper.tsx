@@ -1,6 +1,5 @@
-import { toast } from "react-toastify";
 import "./ContentWrapper.css";
-import copySvg from "../../assets/copy.svg";
+import AutoExpandingTextarea from "../AutoExpandingTextarea/AutoExpandingTextarea";
 
 interface ContentWrapperProps {
   hasInput?: boolean;
@@ -19,48 +18,26 @@ const ContentWrapper = ({
   output,
   handleChange,
 }: ContentWrapperProps) => {
-  const handleCopy = (content: string) => {
-    navigator.clipboard.writeText(content);
-    toast.success("Content copied to clipboard ✅");
-  };
-
   return (
     <div className="content">
       {hasInput && (
-        <div className="content-wrapper">
-          <label htmlFor="input">Input:</label>
-          <textarea
-            name="input"
-            id="input"
-            value={input}
-            onChange={handleChange}
-          />
-          <img
-            src={copySvg}
-            alt="Copy"
-            className="copy"
-            title="Copy Input"
-            onClick={() => handleCopy(input)}
-          />
-        </div>
-      )}
-      <div className="content-wrapper">
-        <label htmlFor="output">Output:</label>
-        <textarea
-          readOnly
-          name="output"
-          id="output"
-          value={output}
+        <AutoExpandingTextarea
+          name="input"
+          value={input}
+          showCopy
           onChange={handleChange}
+          placeholder="Enter your input here..."
         />
-        <img
-          src={copySvg}
-          alt="Copy"
-          className="copy"
-          title="Copy Output"
-          onClick={() => handleCopy(output)}
-        />
-      </div>
+      )}
+
+      <AutoExpandingTextarea
+        name="output"
+        value={output}
+        readOnly
+        showCopy
+        onChange={handleChange}
+        placeholder="Output will appear here..."
+      />
     </div>
   );
 };
