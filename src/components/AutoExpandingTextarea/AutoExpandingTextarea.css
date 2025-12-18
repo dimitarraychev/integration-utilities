@@ -1,10 +1,13 @@
 .auto-textarea-wrapper {
   position: relative;
   width: 100%;
+  max-width: 40rem;
+  margin: 0 auto;
 }
 
 .auto-textarea {
   width: 100%;
+  max-width: 100%;
   min-height: 14rem;
   max-height: 32rem;
   overflow-y: auto;
