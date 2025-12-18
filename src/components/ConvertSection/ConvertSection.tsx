@@ -21,7 +21,7 @@ const ConvertSection = ({ title, convertFn }: ConvertSectionProps) => {
 
   return (
     <section className="converter-section section">
-      <h2 className="section-header">{title}</h2>
+      <h3 className="section-header">{title}</h3>
       <div className="section-columns">
         <div className="settings">
           <label htmlFor="mode">Mode:</label>

@@ -26,9 +26,9 @@ function App() {
           <Route
             path="/"
             element={
-              <h2 style={{ color: "var(--light-gray)" }}>
+              <h3 style={{ color: "var(--light-gray)" }}>
                 Choose a Tool to Get Started
-              </h2>
+              </h3>
             }
           />
           <Route

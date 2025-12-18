@@ -3,6 +3,8 @@
   padding: 0;
   margin: 0;
   width: 10rem;
+  background-color: var(--dark);
+  border-radius: 0 1rem 1rem 0;
 }
 
 .side-menu li {
