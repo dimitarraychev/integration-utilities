@@ -1,4 +1,5 @@
 import { useGenerator } from "../../hooks/useGenerator";
+import Button from "../Button/Button";
 import ContentWrapper from "../ContentWrapper/ContentWrapper";
 
 const GenerateSection = () => {
@@ -8,14 +9,14 @@ const GenerateSection = () => {
     excludeAmbiguous: true,
   };
 
-  const { settings, handleChange } = useGenerator(initialSettings);
+  const { settings, handleChange, generate  } = useGenerator(initialSettings);
 
   return (
     <section className="converter-section section">
       <h2 className="section-header">Generate Key</h2>
       <div className="section-columns">
         <div className="settings">
-          <label>Number of Passwords:</label>
+          <label>Number of Keys:</label>
           <input
             type="number"
             name="count"
@@ -25,7 +26,7 @@ const GenerateSection = () => {
             onChange={handleChange}
           />
 
-          <label>Password Length:</label>
+          <label>Key Length:</label>
           <input
             type="number"
             name="length"
@@ -44,6 +45,8 @@ const GenerateSection = () => {
               onChange={handleChange}
             />
           </label>
+
+          <Button title="Generate" text="Generate" onClick={generate}/>
         </div>
 
         <ContentWrapper

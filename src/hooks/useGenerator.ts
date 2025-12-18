@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import type { GeneratorFn, GeneratorSettings } from "../models/Generator";
 import { generateKeys } from "../utils/generateKeys";
 
@@ -19,7 +19,8 @@ export const useGenerator = (
     }));
   };
 
-  useEffect(() => {
+  // Core generation function
+  const generate = useCallback(() => {
     try {
       const generated = generatorFn({
         count: settings.count,
@@ -35,5 +36,9 @@ export const useGenerator = (
     }
   }, [settings.count, settings.length, settings.excludeAmbiguous, generatorFn]);
 
-  return { settings, handleChange };
+  useEffect(() => {
+    generate();
+  }, [settings.count, settings.length, settings.excludeAmbiguous, generate]);
+
+  return { settings, handleChange, generate };
 };
