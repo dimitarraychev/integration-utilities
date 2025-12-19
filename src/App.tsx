@@ -87,7 +87,7 @@ function App() {
         position="top-right"
         theme="dark"
         transition={Bounce}
-        autoClose={5000}
+        autoClose={2000}
         hideProgressBar={false}
         newestOnTop={false}
         rtl={false}
