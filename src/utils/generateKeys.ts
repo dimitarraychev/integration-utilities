@@ -6,7 +6,7 @@ export const generateKeys: GeneratorFn = ({
   excludeAmbiguous,
 }) => {
   let chars =
-    "ABCDEFGHJKLMNPQRSTUVWXYZ" + "abcdefghijkmnopqrstuvwxyz" + "23456789";
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZ" + "abcdefghijklmnopqrstuvwxyz" + "0123456789";
 
   if (excludeAmbiguous) {
     chars = chars.replace(/[0O1lI]/g, "");
