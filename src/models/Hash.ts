@@ -13,6 +13,5 @@ export interface HashSettingsModel {
 export type HashAlgorithm =
   | "SHA-1"
   | "SHA-256"
-  | "SHA-224"
   | "SHA-384"
   | "SHA-512";
