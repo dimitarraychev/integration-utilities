@@ -1,4 +1,4 @@
-import type { GeneratorFn } from "../models/Generator";
+import type { GeneratorFn } from "../models/Generate";
 
 export const generateKeys: GeneratorFn = ({
   count,

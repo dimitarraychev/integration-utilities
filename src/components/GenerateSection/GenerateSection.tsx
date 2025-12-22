@@ -1,4 +1,4 @@
-import { useGenerator } from "../../hooks/useGenerator";
+import { useGenerate } from "../../hooks/useGenerate";
 import Button from "../Button/Button";
 import ContentWrapper from "../ContentWrapper/ContentWrapper";
 
@@ -9,7 +9,7 @@ const GenerateSection = () => {
     excludeAmbiguous: true,
   };
 
-  const { settings, handleChange, generate } = useGenerator(initialSettings);
+  const { settings, handleChange, generate } = useGenerate(initialSettings);
 
   return (
     <section className="converter-section section">

@@ -1,6 +1,6 @@
-import type { ConverterMode } from "../models/Converter";
+import type { ConvertMode } from "../models/Convert";
 
-export const hexConverter = (input: string, mode: ConverterMode): string => {
+export const hexConverter = (input: string, mode: ConvertMode): string => {
   if (mode === "encode") {
     return Array.from(new TextEncoder().encode(input))
       .map((b) => b.toString(16).padStart(2, "0"))
@@ -12,7 +12,7 @@ export const hexConverter = (input: string, mode: ConverterMode): string => {
   }
 };
 
-export const base64Converter = (input: string, mode: ConverterMode): string => {
+export const base64Converter = (input: string, mode: ConvertMode): string => {
   if (mode === "encode") {
     const bytes = new TextEncoder().encode(input);
     return btoa(String.fromCharCode(...bytes));
@@ -28,7 +28,7 @@ export const base64Converter = (input: string, mode: ConverterMode): string => {
   }
 };
 
-export const urlConverter = (input: string, mode: ConverterMode): string => {
+export const urlConverter = (input: string, mode: ConvertMode): string => {
   try {
     return mode === "encode"
       ? encodeURIComponent(input)

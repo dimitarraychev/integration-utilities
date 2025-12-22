@@ -1,12 +1,12 @@
-import type { FormatFn } from "../models/Formatter";
+import type { FormatFn } from "../models/Format";
 
-export const defaultFormatFn: FormatFn = (input, mode) => {
+export const formatJson: FormatFn = (input, mode) => {
   try {
     if (!input.trim()) return "";
 
     if (mode === "parse") {
       const parsed = JSON.parse(input);
-      return parsed; // maybe return as JS object? but for display, stringify it
+      return parsed;
     }
 
     if (mode === "stringify") {

@@ -1,7 +1,7 @@
 import SettingsWrapper from "../SettingsWrapper/SettingsWrapper";
 import ContentWrapper from "../ContentWrapper/ContentWrapper";
-import { useHasher } from "../../hooks/useHasher";
-import type { HashAlgorithm, HashingSettings } from "../../models/Hasher";
+import { useHash } from "../../hooks/useHash";
+import type { HashAlgorithm, HashSettings } from "../../models/Hash";
 
 interface HashSectionProps {
   algorithm: HashAlgorithm;
@@ -9,7 +9,7 @@ interface HashSectionProps {
 }
 
 const HashSection = ({ algorithm, title }: HashSectionProps) => {
-  const initialSettings: HashingSettings = {
+  const initialSettings: HashSettings = {
     input: "",
     output: "",
     inputEncoding: "utf8",
@@ -19,7 +19,7 @@ const HashSection = ({ algorithm, title }: HashSectionProps) => {
     key: "",
   };
 
-  const { settingsData, handleChange } = useHasher(initialSettings);
+  const { settingsData, handleChange } = useHash(initialSettings);
 
   return (
     <section className={`hash-section section ${algorithm.toLowerCase()}`}>

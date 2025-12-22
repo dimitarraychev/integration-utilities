@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
-import type { FormatFn, FormatSettings } from "../models/Formatter";
-import { defaultFormatFn } from "../utils/format";
+import type { FormatFn, FormatSettings } from "../models/Format";
+import { formatJson } from "../utils/formatJson";
 
 export const useFormat = (
   initialSettings: FormatSettings,
-  formatFn: FormatFn = defaultFormatFn
+  formatFn: FormatFn = formatJson
 ) => {
   const [settings, setSettings] = useState<FormatSettings>(initialSettings);
 

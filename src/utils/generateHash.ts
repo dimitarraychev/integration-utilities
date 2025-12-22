@@ -1,4 +1,4 @@
-import type { HashAlgorithm } from "../models/Hasher";
+import type { HashAlgorithm } from "../models/Hash";
 
 export const generateHash = async (
   payload: Uint8Array,

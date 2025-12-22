@@ -1,12 +1,12 @@
 import { useState, useEffect, useCallback } from "react";
-import type { GeneratorFn, GeneratorSettings } from "../models/Generator";
+import type { GenerateFn, GenerateSettings } from "../models/Generate";
 import { generateKeys } from "../utils/generateKeys";
 
-export const useGenerator = (
-  initialSettings: Omit<GeneratorSettings, "passwords">,
-  generatorFn: GeneratorFn = generateKeys
+export const useGenerate = (
+  initialSettings: Omit<GenerateSettings, "passwords">,
+  generateFn: GenerateFn = generateKeys
 ) => {
-  const [settings, setSettings] = useState<GeneratorSettings>({
+  const [settings, setSettings] = useState<GenerateSettings>({
     ...initialSettings,
     passwords: [],
   });
@@ -19,10 +19,9 @@ export const useGenerator = (
     }));
   };
 
-  // Core generation function
   const generate = useCallback(() => {
     try {
-      const generated = generatorFn({
+      const generated = generateFn({
         count: settings.count,
         length: settings.length,
         excludeAmbiguous: settings.excludeAmbiguous,
@@ -34,7 +33,7 @@ export const useGenerator = (
         passwords: [`Error: ${err.message}`],
       }));
     }
-  }, [settings.count, settings.length, settings.excludeAmbiguous, generatorFn]);
+  }, [settings.count, settings.length, settings.excludeAmbiguous, generateFn]);
 
   useEffect(() => {
     generate();

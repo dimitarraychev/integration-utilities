@@ -1,6 +1,6 @@
 import ContentWrapper from "../ContentWrapper/ContentWrapper";
-import { useConverter } from "../../hooks/useConverter";
-import type { ConverterSettings } from "../../hooks/useConverter";
+import { useConvert } from "../../hooks/useConvert";
+import type { ConvertSettings } from "../../models/Convert";
 
 interface ConvertSectionProps {
   title: string;
@@ -8,16 +8,13 @@ interface ConvertSectionProps {
 }
 
 const ConvertSection = ({ title, convertFn }: ConvertSectionProps) => {
-  const initialSettings: ConverterSettings = {
+  const initialSettings: ConvertSettings = {
     input: "",
     output: "",
     mode: "decode",
   };
 
-  const { settingsData, handleChange } = useConverter(
-    initialSettings,
-    convertFn
-  );
+  const { settingsData, handleChange } = useConvert(initialSettings, convertFn);
 
   return (
     <section className="converter-section section">
