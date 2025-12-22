@@ -43,6 +43,7 @@ const RSASettings = ({
         value={settings.outputEncoding}
         onChange={handleChange}
       >
+        <option value="utf8">UTF-8</option>
         <option value="base64">Base64</option>
         <option value="hex-lower">Hex (lowercase)</option>
         <option value="hex-upper">Hex (uppercase)</option>
