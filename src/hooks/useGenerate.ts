@@ -1,12 +1,12 @@
 import { useState, useEffect, useCallback } from "react";
-import type { GenerateFn, GenerateSettings } from "../models/Generate";
+import type { GenerateFn, GenerateSettingsModel } from "../models/Generate";
 import { generateKeys } from "../utils/generateKeys";
 
 export const useGenerate = (
-  initialSettings: Omit<GenerateSettings, "passwords">,
+  initialSettings: Omit<GenerateSettingsModel, "passwords">,
   generateFn: GenerateFn = generateKeys
 ) => {
-  const [settings, setSettings] = useState<GenerateSettings>({
+  const [settings, setSettings] = useState<GenerateSettingsModel>({
     ...initialSettings,
     passwords: [],
   });

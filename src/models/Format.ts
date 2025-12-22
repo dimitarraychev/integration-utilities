@@ -1,6 +1,6 @@
 export type FormatMode = "parse" | "stringify" | "stringify-pretty";
 
-export interface FormatSettings {
+export interface FormatSettingsModel {
   input: string;
   output: string;
   mode: FormatMode;

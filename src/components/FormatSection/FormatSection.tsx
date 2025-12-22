@@ -1,9 +1,9 @@
 import ContentWrapper from "../ContentWrapper/ContentWrapper";
 import { useFormat } from "../../hooks/useFormat";
-import type { FormatSettings } from "../../models/Format";
+import type { FormatSettingsModel } from "../../models/Format";
 
 const FormatSection = () => {
-  const initialSettings: FormatSettings = {
+  const initialSettings: FormatSettingsModel = {
     input: "",
     output: "",
     mode: "parse",

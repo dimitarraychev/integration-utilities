@@ -1,6 +1,6 @@
 import ContentWrapper from "../ContentWrapper/ContentWrapper";
 import { useConvert } from "../../hooks/useConvert";
-import type { ConvertSettings } from "../../models/Convert";
+import type { ConvertSettingsModel } from "../../models/Convert";
 
 interface ConvertSectionProps {
   title: string;
@@ -8,13 +8,13 @@ interface ConvertSectionProps {
 }
 
 const ConvertSection = ({ title, convertFn }: ConvertSectionProps) => {
-  const initialSettings: ConvertSettings = {
+  const initialSettings: ConvertSettingsModel = {
     input: "",
     output: "",
     mode: "decode",
   };
 
-  const { settingsData, handleChange } = useConvert(initialSettings, convertFn);
+  const { settings, handleChange } = useConvert(initialSettings, convertFn);
 
   return (
     <section className="converter-section section">
@@ -22,15 +22,15 @@ const ConvertSection = ({ title, convertFn }: ConvertSectionProps) => {
       <div className="section-columns">
         <div className="settings">
           <label htmlFor="mode">Mode:</label>
-          <select name="mode" value={settingsData.mode} onChange={handleChange}>
+          <select name="mode" value={settings.mode} onChange={handleChange}>
             <option value="decode">Decode</option>
             <option value="encode">Encode</option>
           </select>
         </div>
 
         <ContentWrapper
-          input={settingsData.input}
-          output={settingsData.output}
+          input={settings.input}
+          output={settings.output}
           handleChange={handleChange}
         />
       </div>

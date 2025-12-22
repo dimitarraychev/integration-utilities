@@ -1,6 +1,6 @@
 export type ConvertMode = "encode" | "decode";
 
-export interface ConvertSettings {
+export interface ConvertSettingsModel {
   input: string;
   output: string;
   mode: ConvertMode;

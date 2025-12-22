@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
-import type { ConvertFn, ConvertSettings } from "../models/Convert";
+import type { ConvertFn, ConvertSettingsModel } from "../models/Convert";
 
 export const useConvert = (
-  initialSettings: ConvertSettings,
+  initialSettings: ConvertSettingsModel,
   convertFn: ConvertFn
 ) => {
-  const [settings, setSettings] = useState<ConvertSettings>(initialSettings);
+  const [settings, setSettings] =
+    useState<ConvertSettingsModel>(initialSettings);
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -25,5 +26,5 @@ export const useConvert = (
     }
   }, [settings.input, settings.mode, convertFn]);
 
-  return { settingsData: settings, handleChange };
+  return { settings, handleChange };
 };

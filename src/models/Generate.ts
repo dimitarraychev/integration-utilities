@@ -1,4 +1,4 @@
-export interface GenerateSettings {
+export interface GenerateSettingsModel {
   count: number;
   length: number;
   excludeAmbiguous: boolean;
@@ -6,5 +6,5 @@ export interface GenerateSettings {
 }
 
 export type GenerateFn = (
-  settings: Omit<GenerateSettings, "passwords">
+  settings: Omit<GenerateSettingsModel, "passwords">
 ) => string[];
