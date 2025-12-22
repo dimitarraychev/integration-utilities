@@ -68,6 +68,8 @@ textarea {
   min-width: 20rem;
   min-height: 5rem;
   max-height: 10rem;
+  padding: 0.3rem;
+  padding-right: 2.5rem;
 }
 
 .wrapper input {
