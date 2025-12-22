@@ -8,7 +8,7 @@ const RSASection = () => {
     input: "",
     output: "",
     inputEncoding: "utf8",
-    outputEncoding: "base64",
+    outputEncoding: "hex-lower",
     publicKey: "",
     privateKey: "",
     algorithm: "SHA-256",
