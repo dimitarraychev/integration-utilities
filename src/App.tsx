@@ -22,8 +22,8 @@ function App() {
           <Route
             path="/"
             element={
-              <h3 style={{ color: "var(--light-gray)" }}>
-                Choose a Tool to Get Started
+              <h3 className="section-header welcome-msg">
+                Choose a Tool to Get Started...
               </h3>
             }
           />
