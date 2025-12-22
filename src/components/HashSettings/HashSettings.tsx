@@ -1,8 +1,7 @@
-import "./SettingsWrapper.css";
-import type { HashSettings } from "../../models/Hash";
+import type { HashSettingsModel } from "../../models/Hash";
 
-interface SettingsWrapperProps {
-  settingsData: HashSettings;
+interface HashSettingsProps {
+  settings: HashSettingsModel;
   handleChange: (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
@@ -10,17 +9,14 @@ interface SettingsWrapperProps {
   ) => void;
 }
 
-const SettingsWrapper = ({
-  settingsData,
-  handleChange,
-}: SettingsWrapperProps) => {
+const HashSettings = ({ settings, handleChange }: HashSettingsProps) => {
   return (
     <div className="settings">
       <label htmlFor="inputEncoding">Input Encoding:</label>
       <select
         name="inputEncoding"
         id="inputEncoding"
-        value={settingsData.inputEncoding}
+        value={settings.inputEncoding}
         onChange={handleChange}
       >
         <option value="utf8">UTF-8</option>
@@ -32,7 +28,7 @@ const SettingsWrapper = ({
       <select
         name="outputEncoding"
         id="outputEncoding"
-        value={settingsData.outputEncoding}
+        value={settings.outputEncoding}
         onChange={handleChange}
       >
         <option value="hex-lower">Hex (lowercase)</option>
@@ -48,7 +44,7 @@ const SettingsWrapper = ({
           <select
             name="keyEncoding"
             id="keyEncoding"
-            value={settingsData.keyEncoding}
+            value={settings.keyEncoding}
             onChange={handleChange}
           >
             <option value="utf8">UTF-8</option>
@@ -61,7 +57,7 @@ const SettingsWrapper = ({
             type="text"
             name="key"
             id="key"
-            value={settingsData.key}
+            value={settings.key}
             onChange={handleChange}
           />
         </div>
@@ -70,4 +66,4 @@ const SettingsWrapper = ({
   );
 };
 
-export default SettingsWrapper;
+export default HashSettings;

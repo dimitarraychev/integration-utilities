@@ -1,4 +1,4 @@
-export interface HashSettings {
+export interface HashSettingsModel {
   input: string;
   output: string;
   inputEncoding: "utf8" | "hex" | "base64" | "";

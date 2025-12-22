@@ -1,13 +1,12 @@
 import { useState, useEffect } from "react";
-import type { HashSettings } from "../models/Hash";
+import type { HashSettingsModel } from "../models/Hash";
 import { encodeHash } from "../utils/encodeHash";
 import { decodeInput } from "../utils/decodeInput";
 import { validateInput } from "../utils/validateInput";
 import { generateHash } from "../utils/generateHash";
 
-export const useHash = (initialSettings: HashSettings) => {
-  const [settings, setSettings] =
-    useState<HashSettings>(initialSettings);
+export const useHash = (initialSettings: HashSettingsModel) => {
+  const [settings, setSettings] = useState<HashSettingsModel>(initialSettings);
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -37,10 +36,7 @@ export const useHash = (initialSettings: HashSettings) => {
       }
 
       try {
-        const inputBytes = decodeInput(
-          settings.input,
-          settings.inputEncoding
-        );
+        const inputBytes = decodeInput(settings.input, settings.inputEncoding);
         const keyBytes = settings.key
           ? decodeInput(settings.key, settings.keyEncoding)
           : undefined;
@@ -75,5 +71,5 @@ export const useHash = (initialSettings: HashSettings) => {
     settings.algorithm,
   ]);
 
-  return { settingsData: settings, handleChange, setSettingsData: setSettings };
+  return { settings, handleChange, setSettings };
 };
