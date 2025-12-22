@@ -61,6 +61,14 @@ const SideMenu = () => {
         Key
       </li>
 
+      <li className="menu-header">Crypto</li>
+      <li
+        className={location.pathname === "/rsa" ? "active" : ""}
+        onClick={() => navigate("/rsa")}
+      >
+        RSA
+      </li>
+
       <li className="menu-header">Format</li>
       <li
         className={location.pathname === "/json" ? "active" : ""}

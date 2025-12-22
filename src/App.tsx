@@ -11,6 +11,7 @@ import {
 import GenerateSection from "./components/GenerateSection/GenerateSection";
 import FormatSection from "./components/FormatSection/FormatSection";
 import HashSection from "./components/HashSection/HashSection";
+import RSASection from "./components/RSASection/RSASection";
 
 function App() {
   return (
@@ -72,6 +73,8 @@ function App() {
               />
             }
           />
+
+          <Route path="/rsa" element={<RSASection />} />
 
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
