@@ -39,7 +39,7 @@ const SideMenu = () => {
         SHA-512
       </li>
 
-      <li className="menu-header">Convert</li>
+      <li className="menu-header">Encoding</li>
       <li
         className={location.pathname === "/hex" ? "active" : ""}
         onClick={() => navigate("/hex")}
@@ -64,7 +64,7 @@ const SideMenu = () => {
         className={location.pathname === "/key" ? "active" : ""}
         onClick={() => navigate("/key")}
       >
-        Key
+        API Key
       </li>
 
       <li className="menu-header">Crypto</li>
