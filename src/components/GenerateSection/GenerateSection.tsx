@@ -51,7 +51,7 @@ const GenerateSection = () => {
         <ContentWrapper
           hasInput={false}
           input=""
-          output={settings.passwords.join("\n")}
+          output={settings.passwords}
           handleChange={() => {}}
         />
       </div>

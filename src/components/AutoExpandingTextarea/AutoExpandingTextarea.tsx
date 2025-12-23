@@ -6,7 +6,7 @@ import "./AutoExpandingTextarea.css";
 interface AutoExpandingTextareaProps
   extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
   value: string;
-  title: string;
+  title?: string;
   onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
   maxHeight?: number;
   minHeight?: number;
@@ -52,27 +52,30 @@ const AutoExpandingTextarea = ({
   }, [value, maxHeight, minHeight]);
 
   return (
-    <div className="auto-textarea-wrapper">
-      <label htmlFor={props.name}>{title}:</label>
-      <textarea
-        {...props}
-        ref={textareaRef}
-        value={value}
-        onChange={handleInput}
-        readOnly={readOnly}
-        className="auto-textarea"
-        id={props.name}
-      />
-      {showCopy && (
-        <img
-          src={copySvg}
-          alt="Copy"
-          onClick={handleCopy}
-          className="copy-btn"
-          title="Copy"
+    <>
+      {title != "" && <label htmlFor={props.name}>{title}:</label>}
+
+      <div className="auto-textarea-wrapper">
+        <textarea
+          {...props}
+          ref={textareaRef}
+          value={value}
+          onChange={handleInput}
+          readOnly={readOnly}
+          className="auto-textarea"
+          id={props.name}
         />
-      )}
-    </div>
+        {showCopy && (
+          <img
+            src={copySvg}
+            alt="Copy"
+            onClick={handleCopy}
+            className="copy-btn"
+            title="Copy"
+          />
+        )}
+      </div>
+    </>
   );
 };
 

@@ -4,7 +4,7 @@ import AutoExpandingTextarea from "../AutoExpandingTextarea/AutoExpandingTextare
 interface ContentWrapperProps {
   hasInput?: boolean;
   input: string;
-  output: string;
+  output: string | string[];
   handleChange: (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
@@ -18,6 +18,9 @@ const ContentWrapper = ({
   output,
   handleChange,
 }: ContentWrapperProps) => {
+  const isArray = Array.isArray(output);
+  const outputs = isArray ? output : [output];
+
   return (
     <div className="content">
       {hasInput && (
@@ -33,17 +36,20 @@ const ContentWrapper = ({
         />
       )}
 
-      <AutoExpandingTextarea
-        name="output"
-        title="Output"
-        value={output}
-        readOnly
-        showCopy
-        onChange={handleChange}
-        placeholder="Output will appear here..."
-        minHeight={256}
-        maxHeight={256}
-      />
+      {outputs.map((item, idx) => (
+        <AutoExpandingTextarea
+          key={idx}
+          name={`output-${idx}`}
+          title={idx === 0 ? "Output" : ""}
+          value={item}
+          readOnly
+          showCopy
+          onChange={handleChange}
+          placeholder="Output will appear here..."
+          minHeight={isArray ? 48 : 256}
+          maxHeight={isArray ? 48 : 256}
+        />
+      ))}
     </div>
   );
 };
