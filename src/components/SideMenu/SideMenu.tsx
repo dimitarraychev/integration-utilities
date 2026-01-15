@@ -64,7 +64,7 @@ const SideMenu = () => {
         className={location.pathname === "/key" ? "active" : ""}
         onClick={() => navigate("/key")}
       >
-        API Key
+        Key
       </li>
 
       <li className="menu-header">Crypto</li>

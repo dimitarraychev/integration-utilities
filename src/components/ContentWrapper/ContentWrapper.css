@@ -1,7 +1,7 @@
 .content {
   display: flex;
   flex-direction: column;
-  width: 42rem;
+  flex: 1;
 }
 
 .content #output,

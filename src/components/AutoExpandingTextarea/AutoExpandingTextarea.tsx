@@ -53,7 +53,7 @@ const AutoExpandingTextarea = ({
 
   return (
     <>
-      {title != "" && <label htmlFor={props.name}>{title}:</label>}
+      {title !== "" && <label htmlFor={props.name}>{title}:</label>}
 
       <div className="auto-textarea-wrapper">
         <textarea
