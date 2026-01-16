@@ -1,8 +1,10 @@
 import "./ContentWrapper.css";
 import CustomTextarea from "../CustomTextarea/CustomTextarea";
+import JsonViewer from "../JsonViewer/JsonViewer";
 
 interface ContentWrapperProps {
   hasInput?: boolean;
+  hasJsonViewerOutput?: boolean;
   input: string;
   output: string | string[];
   handleChange: (
@@ -14,6 +16,7 @@ interface ContentWrapperProps {
 
 const ContentWrapper = ({
   hasInput = true,
+  hasJsonViewerOutput = false,
   input,
   output,
   handleChange,
@@ -34,19 +37,22 @@ const ContentWrapper = ({
         />
       )}
 
-      {outputs.map((item, idx) => (
-        <CustomTextarea
-          key={idx}
-          name={`output-${idx}`}
-          title={idx === 0 ? "Output" : ""}
-          value={item}
-          readOnly
-          showExpand={hasInput}
-          onChange={handleChange}
-          placeholder="Output will appear here..."
-          minHeight={isArray ? 48 : 272}
-        />
-      ))}
+      {!hasJsonViewerOutput &&
+        outputs.map((item, idx) => (
+          <CustomTextarea
+            key={idx}
+            name={`output-${idx}`}
+            title={idx === 0 ? "Output" : ""}
+            value={item}
+            readOnly
+            showExpand={hasInput}
+            onChange={handleChange}
+            placeholder="Output will appear here..."
+            minHeight={isArray ? 48 : 272}
+          />
+        ))}
+
+      {hasJsonViewerOutput && <JsonViewer jsonData={output} title="Output:" />}
     </div>
   );
 };

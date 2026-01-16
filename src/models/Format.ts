@@ -1,4 +1,4 @@
-export type FormatMode = "parse" | "stringify" | "stringify-pretty";
+export type FormatMode = "parse" | "stringify" | "inspect";
 
 export interface FormatSettingsModel {
   input: string;

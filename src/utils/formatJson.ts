@@ -13,8 +13,9 @@ export const formatJson: FormatFn = (input, mode) => {
       return JSON.stringify(JSON.parse(input));
     }
 
-    if (mode === "stringify-pretty") {
-      return JSON.stringify(JSON.parse(input), null, 2);
+    if (mode === "inspect") {
+      const parsed = JSON.parse(input);
+      return parsed;
     }
 
     return input;

@@ -24,8 +24,8 @@ export const useFormat = (
 
       setSettings((prev) => ({
         ...prev,
-        output:
-          typeof result === "string" ? result : JSON.stringify(result, null, 2),
+        output: result,
+        // typeof result === "string" ? result : JSON.stringify(result, null, 2),
       }));
     } catch (err: any) {
       setSettings((prev) => ({ ...prev, output: `Error: ${err.message}` }));

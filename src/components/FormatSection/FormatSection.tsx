@@ -24,7 +24,7 @@ const FormatSection = () => {
             options={[
               { label: "Parse", value: "parse" },
               { label: "Stringify", value: "stringify" },
-              { label: "Pretty-print", value: "stringify-pretty" },
+              { label: "Inspect", value: "inspect" },
             ]}
             onChange={(value) =>
               handleChange({
@@ -36,6 +36,7 @@ const FormatSection = () => {
 
         <ContentWrapper
           hasInput={true}
+          hasJsonViewerOutput={settings.mode === "inspect"}
           input={settings.input}
           output={settings.output}
           handleChange={handleChange}
